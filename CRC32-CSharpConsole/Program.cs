@@ -15,8 +15,24 @@ namespace CRC32_CSharpConsole
                     break;
                 }
                 var arrayOfBytes = Encoding.UTF8.GetBytes(str);
-                Console.WriteLine(Crc32.Crc32.Get(arrayOfBytes).ToString(@"X"));
+                str = Crc32.Crc32.Get(arrayOfBytes).ToString(@"X");
+                Console.WriteLine(Crc32.Crc32.Getuid(str));
+                /*
+                var wanted = Convert.ToUInt32(str, 16);
+                for (var i = 0; i < 1e9; ++i)
+                {
+                    var arrayOfBytes = Encoding.UTF8.GetBytes(i.ToString(@"D"));
+                    if (wanted == Crc32.Crc32.Get(arrayOfBytes))
+                    {
+                        Console.WriteLine(i);
+                    }
+                }
+                Console.WriteLine(@"OVER" + Environment.NewLine + Environment.NewLine);
+
+                /*var arrayOfBytes = Encoding.UTF8.GetBytes(str);
+                Console.WriteLine(Crc32.Crc32.Get(arrayOfBytes).ToString(@"X"));*/
             }
+            
         }
     }
 }
